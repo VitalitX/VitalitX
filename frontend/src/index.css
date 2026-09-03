@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Nunito:wght@300;400;500;600;700&family=DM+Mono:wght@300;400;500&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css');
+
+/* ── Dark mode tokens (default) ── */
+:root {
+  --bg-base:        #0C0E14;
+  --bg-surface:     #111520;
+  --bg-card:        #141826;
+  --bg-card-hover:  #181D2E;
+  --bg-elevated:    #1C2133;
+  --bg-panel:       #0E1118;
+
+  --border:         rgba(255,255,255,0.07);
+  --border-warm:    rgba(255,255,255,0.14);
+
+  --mint:           #34D399;
+  --mint-dim:       rgba(52,211,153,0.12);
+  --amber:          #FBBF24;
+  --amber-dim:      rgba(251,191,36,0.12);
+  --rose:           #F87171;
+  --rose-dim:       rgba(248,113,113,0.12);
+  --blue:           #60A5FA;
+  --blue-dim:       rgba(96,165,250,0.12);
+  --purple:         #A78BFA;
+
+  --text-primary:   #EEF0F6;
+  --text-secondary: #8892AA;
+  --text-muted:     #4A5168;
+  --text-warm:      #C8CAD4;
+
+  --glow-color:     rgba(251,191,36,0.06);
+  --card-gradient:  linear-gradient(145deg, #141826 0%, #1C2133 100%);
+}
+
+/* ── Light mode tokens ── */
+[data-theme="light"] {
+  --bg-base:        #F0EDE8;
+  --bg-surface:     #E8E4DE;
+  --bg-card:        #FFFFFF;
+  --bg-card-hover:  #F7F5F1;
+  --bg-elevated:    #EDE9E3;
+  --bg-panel:       #FAFAF8;
+
+  --border:         rgba(0,0,0,0.09);
+  --border-warm:    rgba(0,0,0,0.16);
+
+  --mint:           #047857;
+  --mint-dim:       rgba(4,120,87,0.1);
+  --amber:          #B45309;
+  --amber-dim:      rgba(180,83,9,0.1);
+  --rose:           #B91C1C;
+  --rose-dim:       rgba(185,28,28,0.1);
+  --blue:           #1D4ED8;
+  --blue-dim:       rgba(29,78,216,0.1);
+  --purple:         #6D28D9;
+
+  --text-primary:   #111318;
+  --text-secondary: #4B5263;
+  --text-muted:     #8A909E;
+  --text-warm:      #2C2F3A;
+
+  --glow-color:     rgba(180,83,9,0.04);
+  --card-gradient:  linear-gradient(145deg, #FFFFFF 0%, #F5F2ED 100%);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+
+body {
+  background: var(--bg-base);
+  color: var(--text-primary);
+  font-family: 'Nunito', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: -200px; left: 50%;
+  transform: translateX(-50%);
+  width: 600px; height: 400px;
+  background: radial-gradient(ellipse, var(--glow-color) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+#root { position: relative; z-index: 1; }
+
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-warm); border-radius: 2px; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.7; transform: scale(0.95); }
+}
+@keyframes celebrate {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(1.08); }
+  70%  { transform: scale(0.97); }
+  100% { transform: scale(1); }
+}
+@keyframes streak-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(251,191,36,0); }
+  50%       { box-shadow: 0 0 16px 2px rgba(251,191,36,0.15); }
+}
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
